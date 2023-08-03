@@ -13,7 +13,7 @@ function computerPlay(compChoice){
         return choiceNum;
 }
         
-        function playRound(playerChoiceInt, compChoiceInt, compChoice, playerChoice){
+function playRound(playerChoiceInt, compChoiceInt, compChoice, playerChoice){
         /* 0 == rock
         1 == paper
         2 == scissor
@@ -32,8 +32,7 @@ function computerPlay(compChoice){
         console.log(`You lost! You chose ${playerChoice} and The computer chose ${compChoice.Value}`);
         }
 }
-        
-        function game(){
+function game(){
         let compChoice = {Value: ""};
         let compChoiceInt;
         let playerChoiceInt;
@@ -55,3 +54,6 @@ function computerPlay(compChoice){
         playRound(playerChoiceInt, compChoiceInt, compChoice, playerChoice);
         }       
 }
+
+const btn = document.querySelectorAll('button')
+btn .forEach((btn) =>{btn.addEventListener("click", playRound)})
