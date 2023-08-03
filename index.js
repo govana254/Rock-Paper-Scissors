@@ -12,7 +12,11 @@ function computerPlay(compChoice){
         console.log(choiceNum);
         return choiceNum;
 }
-        
+
+const result = document.querySelector('results')
+const content = document .createElement('div')
+content.classList.add('content')
+
 function playRound(playerChoiceInt, compChoiceInt, compChoice, playerChoice){
         /* 0 == rock
         1 == paper
@@ -21,15 +25,15 @@ function playRound(playerChoiceInt, compChoiceInt, compChoice, playerChoice){
         let win_array = [[0, 2, 1], 
                         [1, 0, 2], 
                         [2, 1, 0]];
-        let result = win_array[playerChoiceInt][compChoiceInt];
+        let result = win_array[playerChoiceInt][compChoice];
         if (result == 0){
-        console.log(`Its a tie! You chose ${playerChoice} and The computer chose ${compChoice.Value}`);
+        content.textContent = `Its a tie! You chose ${playerChoice} and The computer chose ${compChoice.Value}`;
         }
         else if (result == 1){
-        console.log(`You won! You chose ${playerChoice} and The computer chose ${compChoice.Value}`);
+        content.textContent = `You won! You chose ${playerChoice} and The computer chose ${compChoice.Value}`;
         }
         else if (result == 2){
-        console.log(`You lost! You chose ${playerChoice} and The computer chose ${compChoice.Value}`);
+        content.textContent = `You lost! You chose ${playerChoice} and The computer chose ${compChoice.Value}`;
         }
 }
 function game(){
