@@ -1,23 +1,19 @@
-function getComputerChoice(){
-        let compChoice = ""
-        let choiceNum = Math.floor(Math.random() * 3);
-        if (choiceNum == 0){
-        compChoice = "rock";
-        }
-        else if (choiceNum == 1){
-        compChoice = "paper";
-        }
-        else if(choiceNum == 2){
-        compChoice = "scissors";
-        }
-        return compChoice;
-}
+const button = document.querySelector('btn');
 
-function playRound(playerSelection) {
-        const choices = ["rock", "paper", "scissors"];
-        const computerSelection = getComputerChoice();
+button.addEventListener('click', function(event) {
+        const buttonValue = event.target.value;
 
-        playerSelection = playerSelection.toLowerCase();
+        console.log( buttonValue)
+});
+
+function getComputerChoice() {
+        let choices = ['rock', 'paper', 'scissors']
+        return choices[Math.floor(Math.random() * choices.length)]
+        }
+
+function playRound() {
+        let computerSelection = computerPlay()
+        let result = ""
 
         if (!choices.includes(playerSelection)) {
         return "Invalid input. Please choose rock, paper, or scissors.";
@@ -36,6 +32,10 @@ function playRound(playerSelection) {
         }
 }
 
-console.log(playRound("paper"))
+console.log(playRound())
+
+function game() {
+
+}
 
 
