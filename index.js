@@ -34,6 +34,8 @@ function playRound() {
         return
 }
 
-
-
-
+buttons.forEach(button =>{
+        button.addEventListener('click', function(){
+                playRound(button.value)
+                })
+        })
