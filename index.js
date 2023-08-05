@@ -1,10 +1,6 @@
-const button = document.querySelector('btn');
-
-button.addEventListener('click', function(event) {
-        const buttonValue = event.target.value;
-
-        console.log( buttonValue)
-});
+let playerScore = 0
+let computerScore = 0
+const buttons = document.querySelectorAll('input')
 
 function getComputerChoice() {
         let choices = ['rock', 'paper', 'scissors']
@@ -15,12 +11,9 @@ function playRound() {
         let computerSelection = computerPlay()
         let result = ""
 
-        if (!choices.includes(playerSelection)) {
-        return "Invalid input. Please choose rock, paper, or scissors.";
-        }
-
         if (playerSelection === computerSelection) {
-                return "It's a tie!";
+                result = ('It\'s a tie. You both chose ' + playerSelection
+                + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore);
         } else if (
                 (playerSelection === "rock" && computerSelection === "scissors") ||
                 (playerSelection === "paper" && computerSelection === "rock") ||
@@ -28,14 +21,19 @@ function playRound() {
         ) {
                 return `You win! ${playerSelection} beats ${computerSelection}.`;
         } else {
-                return `You lose! ${computerSelection} beats ${playerSelection}.`;
+                computerScore += 1
+                result = ('You lose! ' + computerSelection + ' beats ' + playerSelection
+                        + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+        
+                if (computerScore == 5) {
+                        result += '<br><br>I won the game! Reload the page to play again'
+                        disableButtons()
+                }
         }
+        document.getElementById('result').innerHTML = result
+        return
 }
 
-console.log(playRound())
 
-function game() {
-
-}
 
 
